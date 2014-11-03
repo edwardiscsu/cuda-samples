@@ -19,6 +19,8 @@ int main()
     const int b[arraySize] = { 10, 20, 30, 40, 50 };
     int c[arraySize] = { 0 };
 
+	//Cuda
+	
     // Add vectors in parallel.
     cudaError_t cudaStatus = addWithCuda(c, a, b, arraySize);
     if (cudaStatus != cudaSuccess) {
