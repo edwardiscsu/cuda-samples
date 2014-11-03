@@ -26,6 +26,8 @@ int main()
         return 1;
     }
 
+	printf("test");
+	
     printf("{1,2,3,4,5} + {10,20,30,40,50} = {%d,%d,%d,%d,%d}\n",
         c[0], c[1], c[2], c[3], c[4]);
 
