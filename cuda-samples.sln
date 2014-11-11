@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cuda-samples", "cuda-samples\cuda-samples.vcxproj", "{C304917E-54E3-493C-877F-651F86500E85}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cuda-addition", "cuda-samples\cuda-samples.vcxproj", "{C304917E-54E3-493C-877F-651F86500E85}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cuda-vector-addition", "cuda-vector-addition\cuda-vector-addition.vcxproj", "{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,14 @@ Global
 		{C304917E-54E3-493C-877F-651F86500E85}.Release|Win32.Build.0 = Release|Win32
 		{C304917E-54E3-493C-877F-651F86500E85}.Release|x64.ActiveCfg = Release|x64
 		{C304917E-54E3-493C-877F-651F86500E85}.Release|x64.Build.0 = Release|x64
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Debug|Win32.Build.0 = Debug|Win32
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Debug|x64.ActiveCfg = Debug|x64
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Debug|x64.Build.0 = Debug|x64
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Release|Win32.ActiveCfg = Release|Win32
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Release|Win32.Build.0 = Release|Win32
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Release|x64.ActiveCfg = Release|x64
+		{E9F9FB2A-1BB5-43F3-B397-2F50DA3E68D7}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
