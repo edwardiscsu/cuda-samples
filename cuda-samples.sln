@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cuda-vector-addition", "cud
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cuda-hello-world", "cuda-hello-world\cuda-hello-world.vcxproj", "{4FA7DCC5-0255-4517-8AC9-497DF99DDD52}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cuda-simple-addition", "cuda-simple-addition\cuda-simple-addition.vcxproj", "{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -39,6 +41,14 @@ Global
 		{4FA7DCC5-0255-4517-8AC9-497DF99DDD52}.Release|Win32.Build.0 = Release|Win32
 		{4FA7DCC5-0255-4517-8AC9-497DF99DDD52}.Release|x64.ActiveCfg = Release|x64
 		{4FA7DCC5-0255-4517-8AC9-497DF99DDD52}.Release|x64.Build.0 = Release|x64
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Debug|Win32.Build.0 = Debug|Win32
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Debug|x64.ActiveCfg = Debug|x64
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Debug|x64.Build.0 = Debug|x64
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Release|Win32.ActiveCfg = Release|Win32
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Release|Win32.Build.0 = Release|Win32
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Release|x64.ActiveCfg = Release|x64
+		{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
