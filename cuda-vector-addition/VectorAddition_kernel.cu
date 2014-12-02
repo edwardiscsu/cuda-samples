@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 
+#define MAXBLOCKS 1
 #define MAXTHREADS 10
 
 //__global__ (paralellized method)
@@ -41,7 +42,7 @@ int main()
 	cudaMemcpy(d_b, b, MAXTHREADS*sizeof(int), cudaMemcpyHostToDevice);
 	cudaMemcpy(d_c, c, MAXTHREADS*sizeof(int), cudaMemcpyHostToDevice);
 
-	VectorAdd<<< 1, MAXTHREADS >>>(d_a, d_b, d_c, MAXTHREADS); //Run GPU using 1 block and MAXTHREADS number of threads
+	VectorAdd<<< MAXBLOCKS, MAXTHREADS >>>(d_a, d_b, d_c, MAXTHREADS); //Run GPU using 1 block and MAXTHREADS number of threads
 
 	//Copy result back to CPU
 	cudaMemcpy(c, d_c, MAXTHREADS*sizeof(int), cudaMemcpyDeviceToHost);
