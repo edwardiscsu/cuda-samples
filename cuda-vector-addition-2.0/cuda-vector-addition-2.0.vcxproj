@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AAC02DC9-6400-47D8-BC06-725B4B4B91A2}</ProjectGuid>
-    <RootNamespace>cuda_simple_addition</RootNamespace>
+    <ProjectGuid>{08C0F7A7-E1BD-41BC-A5E0-3708F2724C3B}</ProjectGuid>
+    <RootNamespace>cuda_vector_addition_2_0</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -151,7 +151,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CudaCompile Include="SimpleAddition_kernel.cu" />
+    <CudaCompile Include="VectorAddition2.0_kernel.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
