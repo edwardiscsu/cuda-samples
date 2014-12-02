@@ -107,8 +107,8 @@ cudaError_t addWithCuda(int *c, const int *a, const int *b, unsigned int size)
         goto Error;
     }
 
-    //Launch a kernel on the GPU with one thread for each element.
-	VectorAdd<<<MAXBLOCKS, size>>>(d_c, d_a, d_b);
+	//Run GPU using MAXBLOCK number of blocks and size number of threads
+	VectorAdd<<<MAXBLOCKS, size>>>(d_c, d_a, d_b); 
 
     //Check for any errors launching the kernel
     cudaStatus = cudaGetLastError();
