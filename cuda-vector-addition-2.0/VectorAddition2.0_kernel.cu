@@ -13,7 +13,7 @@ cudaError_t addWithCuda(int *c, const int *a, const int *b, unsigned int size);
 //__global__ (paralellized method)
 __global__ void VectorAdd(int *c, const int *a, const int *b)
 {
-    int i = threadIdx.x; //Assign each c element to a single processor
+    int i = threadIdx.x; //Assign each c element to a single thread
 	c[i] = a[i] + b[i];
 }
 

@@ -4,15 +4,14 @@
 
 #include <stdio.h>
 
-#define MAXBLOCKS 1
-#define MAXTHREADS 10
+#define MAXBLOCKS 10
+#define MAXTHREADS 1
 
 //__global__ (paralellized method)
 __global__ void VectorAdd(int *a, int *b, int*c, int n)
 {
-	int i = threadIdx.x; //Assign each c element to a single processor
-	if (i < n) //Make sure there are no processing overlap
-		c[i] = a[i] + b[i];
+	int i = blockIdx.x; //Assign each c element to a single block
+	c[i] = a[i] + b[i];
 }
 
 int main()
@@ -21,16 +20,16 @@ int main()
 	int *d_a, *d_b, *d_c;//GPU
 
 	//Allocate CPU memory
-	a = (int*)malloc(MAXTHREADS*sizeof(int));
-	b = (int*)malloc(MAXTHREADS*sizeof(int));
-	c = (int*)malloc(MAXTHREADS*sizeof(int));
+	a = (int*)malloc(MAXBLOCKS*sizeof(int));
+	b = (int*)malloc(MAXBLOCKS*sizeof(int));
+	c = (int*)malloc(MAXBLOCKS*sizeof(int));
 
 	//Allocate GPU memory
-	cudaMalloc(&d_a, MAXTHREADS*sizeof(int));
-	cudaMalloc(&d_b, MAXTHREADS*sizeof(int));
-	cudaMalloc(&d_c, MAXTHREADS*sizeof(int));
+	cudaMalloc(&d_a, MAXBLOCKS*sizeof(int));
+	cudaMalloc(&d_b, MAXBLOCKS*sizeof(int));
+	cudaMalloc(&d_c, MAXBLOCKS*sizeof(int));
 
-	for (int i = 0; i < MAXTHREADS; ++i) //Populate array
+	for (int i = 0; i < MAXBLOCKS; ++i) //Populate array
 	{
 		a[i] = i;
 		b[i] = i;
@@ -38,19 +37,19 @@ int main()
 	}
 
 	//Copy data to GPU
-	cudaMemcpy(d_a, a, MAXTHREADS*sizeof(int), cudaMemcpyHostToDevice);
-	cudaMemcpy(d_b, b, MAXTHREADS*sizeof(int), cudaMemcpyHostToDevice);
-	cudaMemcpy(d_c, c, MAXTHREADS*sizeof(int), cudaMemcpyHostToDevice);
+	cudaMemcpy(d_a, a, MAXBLOCKS*sizeof(int), cudaMemcpyHostToDevice);
+	cudaMemcpy(d_b, b, MAXBLOCKS*sizeof(int), cudaMemcpyHostToDevice);
+	cudaMemcpy(d_c, c, MAXBLOCKS*sizeof(int), cudaMemcpyHostToDevice);
 
-	VectorAdd<<< MAXBLOCKS, MAXTHREADS >>>(d_a, d_b, d_c, MAXTHREADS); //Run GPU using 1 block and MAXTHREADS number of threads
+	VectorAdd<<< MAXBLOCKS, MAXTHREADS >>>(d_a, d_b, d_c, MAXBLOCKS); //Run GPU using MAXBLOCK number of blocks and MAXTHREADS number of threads
 
 	//Copy result back to CPU
-	cudaMemcpy(c, d_c, MAXTHREADS*sizeof(int), cudaMemcpyDeviceToHost);
+	cudaMemcpy(c, d_c, MAXBLOCKS*sizeof(int), cudaMemcpyDeviceToHost);
 
-	printf("\nMAXTHREADS (%d) VECTOR ADDITION USING CUDA\n\n", MAXTHREADS);
+	printf("\nMAXBLOCKS (%d) VECTOR ADDITION USING CUDA\n\n", MAXBLOCKS);
 	printf("c[i] = a[i] + b[i]\n");
 	printf("======================================\n");
-	for (int i = 0; i < MAXTHREADS; ++i)
+	for (int i = 0; i < MAXBLOCKS; ++i)
 		printf("a[%d] = %d, b[%d] = %d, c[%d] = %d\n", i, a[i], i, b[i], i, c[i]);
 
 	//Free CPU memory
